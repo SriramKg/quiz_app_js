@@ -80,11 +80,14 @@ submitButton.addEventListener("click", () => {
     try{
         let selected = document.querySelector('input[name=answer]:checked').value;
         let text = document.querySelector('input[name=answer]:checked').parentElement;
+        let corrAns = questions[index].correct;
+        let correct = document.querySelectorAll('input')[corrAns].parentElement;
         if (questions[index].correct == selected) {
             count++;
             text.style.backgroundColor = "lightgreen";
         } else {
           text.style.backgroundColor = "red";
+          correct.style.backgroundColor = "lightgreen";
         } 
         let button = document.getElementById('submit');
         button.setAttribute("hidden","hidden");
